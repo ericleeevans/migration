@@ -1,0 +1,11 @@
+--
+-- Migration script for Fooble. Blah blah blah.
+--
+-- Starts at:     TRANSITION-BEFORE = B
+-- Ends at :      TRANSITION-AFTER = C
+-- Irreversible?: TRANSITION-DESTRUCTIVE = FALSE
+--
+
+and
+so
+on

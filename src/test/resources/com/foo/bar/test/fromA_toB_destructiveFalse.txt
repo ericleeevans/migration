@@ -1,0 +1,5 @@
+Other stuff
+
+transition-before = A  transition-after = B  transition-destructive = false
+
+and so on

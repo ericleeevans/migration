@@ -1,0 +1,7 @@
+Other stuff
+
+# transition-before = B
+# transition-after = A
+# transition-destructive = True
+
+and so on
