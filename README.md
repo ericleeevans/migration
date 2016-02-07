@@ -4,7 +4,7 @@ The code in this project can be used to automate a "migration graph" - i.e., a s
 
 This project contains _common_ Scala code that can be used to build migration tools for specific asset types. The following projects provide such tools that are ready to use in your application:
 
-* *[sql-migration](http://)*  - Migrate relational database installations via annotaiotn of SQL scripts.
+* *[sql-migration](http://)*  - Migrate relational database installations via annotation of SQL scripts.
 * *[cassandra-migration](http://)* - Migrate Cassandra installations via annotation of CQL scripts.
 
 ## Motivation
@@ -20,9 +20,9 @@ All this requires only a simple set of annotations to each transition script.
 
 ## Example
 
-A common example would be a software package that creates and mantains data in a database. 
+A common example would be a software package that creates and maintains data in a database. 
 The first release might include an "setup" script that creates the database schema and might also populate initial values in it. 
-Subsequent releases might require changes to the database schema and sometimes *modification of existing data* that conforms to a previous release's schema - i.e., the exsiting database must be *migrated* so that it can be used by the new release. 
+Subsequent releases might require changes to the database schema and sometimes *modification of existing data* that conforms to a previous release's schema - i.e., the existing database must be *migrated* so that it can be used by the new release. 
 
 Each such release might include a  script that applies those changes to the database maintained by the previous release. 
 But as the number of releases grows, it gets trickier to know which scripts to run (and in which order) when applying a new release against an installation that is several releases behind the current one.
@@ -48,11 +48,11 @@ The possible migrations for such a software package constitute a *state-transiti
 In this example, the first release must create and initialize its database by executing a transition script.
 It also includes a "rollback" script to delete its entire database.
 The first script brings the database from the non-existent state (shown as "." in the graph) to the initial state "1.0.0".
-This script is annotated with a *before-state* of "." and an *after-state* of "1.0.0", and the *is-destuctive* flag "false".
+This script is annotated with a *before-state* of "." and an *after-state* of "1.0.0", and the *is-destructive* flag "false".
 The "rollback" script is annotated with *before-state* "1.0.0", *after-state* ".", and *is-destructive* "true".
 
 A subsequent release needs to migrate the database to state 1.1.0, and supports a rollback to state 1.0.0. 
-So it includes one script annotated with *before-state* "1.0.0" and *after-state*  "1.1.0", and a rollback script annotated with *before-state* "1.1.0" and *after-state* "1.0.0" (note that the *is-destuctive* flag might be "true" or"false" in either of these scripts).
+So it includes one script annotated with *before-state* "1.0.0" and *after-state*  "1.1.0", and a rollback script annotated with *before-state* "1.1.0" and *after-state* "1.0.0" (note that the *is-destructive* flag might be "true" or"false" in either of these scripts).
 
 Some other things to note about this graph:
 
