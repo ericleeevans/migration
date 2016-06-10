@@ -4,8 +4,16 @@ The code in this project can be used to automate a "migration graph" - i.e., a s
 
 This project contains _common_ Scala code that can be used to build migration tools for specific asset types. The following projects provide such tools that are ready to use in your application:
 
-* *[sql-migration](http://)*  - Migrate relational database installations via annotation of SQL scripts.
-* *[cassandra-migration](http://)* - Migrate Cassandra installations via annotation of CQL scripts.
+* *[cassandra-migration](https://github.com/ericleeevans/cassandra-migration)* - Migrate Cassandra installations via annotation of CQL scripts.
+* *[sql-migration](https://github.com/ericleeevans/sql-migration)*  - Migrate relational database installations via annotation of SQL scripts.
+
+
+## Usage
+
+~~~
+"org.elevans" % "migration" % "0.1.0"
+~~~
+
 
 ## Motivation
 
